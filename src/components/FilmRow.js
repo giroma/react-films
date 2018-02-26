@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Fave from './Fave';
 
 class FilmRow extends Component {
 
@@ -13,6 +14,7 @@ class FilmRow extends Component {
           <h1>{this.props.film.title}</h1>
           <p>{this.props.film.release_date}</p>
         </div>
+        <Fave />
       </div>
     );
   }
