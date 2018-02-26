@@ -5,7 +5,7 @@ class FilmRow extends Component {
 
   render() {
     return (
-      <div className="film-row" key={this.props.film.id}>
+      <div className="film-row">
         <figure className="film-poster">
           <img src={'https://image.tmdb.org/t/p/w780/'+this.props.film.poster_path} alt="{film.title}" />
         </figure>
