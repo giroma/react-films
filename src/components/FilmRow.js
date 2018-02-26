@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Fave from './Fave';
 
 class FilmRow extends Component {
+  handleDetailsClick = (e) => {console.log('Fetching details for ' + this.props.film.title);}
 
   render() {
     return (
-      <div className="film-row">
+      <div className="film-row" onClick={this.handleDetailsClick}>
         <figure className="film-poster">
           <img src={'https://image.tmdb.org/t/p/w780/'+this.props.film.poster_path} alt="{film.title}" />
         </figure>
