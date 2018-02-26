@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 class Fave extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isFave: false
+    }
+  }
   handleClick = (e) => {e.stopPropagation();
+    this.setState({isFave: !this.state.isFave})
     console.log("handling Fave click!")}
 
   render() {
