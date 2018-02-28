@@ -28,7 +28,7 @@ class FilmList extends Component {
           </div>
         </div>
         {this.props.films.map(film =>
-        <FilmRow film={film} key={film.id}/> )}
+        <FilmRow film={film} key={film.id} onFaveToggle={() => this.props.onFaveToggle(film)} /> )}
       </div>
     );
   }

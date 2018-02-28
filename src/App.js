@@ -6,12 +6,38 @@ import FilmList from './components/FilmList';
 import TMDB from './TMDB';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      films: TMDB.films,
+      faves: [],
+      current: false
+    }
+  }
+
+  handleFaveToggle = (film) => {
+    const faves = this.state.faves.slice()
+    const filmIndex = faves.indexOf(film)
+    if (filmIndex === -1) {
+      faves.push(film)
+      this.setState({faves})
+      console.log(`Adding ${film.title} to faves`);
+    }
+    else {
+      faves.splice(1,film)
+      this.setState({faves})
+      console.log(`Removing ${film.title} from faves`);
+    }
+  }
   render() {
     return (
       <div className="film-library">
-        <FilmList films={TMDB.films}/>
+        <FilmList     faves={this.state.faves}
+                      films={this.state.films}
+                      onFaveToggle={this.handleFaveToggle}/>
 
-        <FilmDetails films={TMDB.films}/>
+        <FilmDetails  films={TMDB.films}
+                      film={this.state.current}/>
       </div>
     );
   }
