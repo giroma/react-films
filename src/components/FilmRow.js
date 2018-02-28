@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Fave from './Fave';
+import TMDB from '../TMDB';
 
 class FilmRow extends Component {
   handleDetailsClick = (e) => {
     this.props.currentFilm()
     console.log('Fetching details for ' + this.props.film.title)
-    // const url = `https://api.themoviedb.org/3/movie/${this.props.film.id}?api_key=${this.props.TMDB.api_key}&append_to_response=videos,images&language=en`
-    // fetch(url).then(response => {
-    //   response.json().then(data => {
-    //     console.log(data) // take a look at what we get back!
-    //   })
-    // })
   }
 
   render() {

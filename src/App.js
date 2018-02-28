@@ -30,7 +30,13 @@ class App extends Component {
     }
   }
   currentFilm = (film) => {
-    this.setState({current: film})
+    const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
+    fetch(url).then(response => {
+      response.json().then(data => {
+        this.setState({current: data})
+        console.log(data)
+      })
+    })
   }
   render() {
     return (
@@ -41,8 +47,7 @@ class App extends Component {
                       currentFilm={this.currentFilm}/>
 
         <FilmDetails  films={TMDB.films}
-                      film={this.state.current}
-                      current={this.state.current}/>
+                      film={this.state.current}/>
       </div>
     );
   }
