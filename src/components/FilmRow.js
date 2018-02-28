@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Fave from './Fave';
 
 class FilmRow extends Component {
-  handleDetailsClick = (e) => {console.log('Fetching details for ' + this.props.film.title);}
+  handleDetailsClick = (e) => {
+    console.log('Fetching details for ' + this.props.film.title)
+    const url = `https://api.themoviedb.org/3/movie/${film.id}?api_key=${TMDB.api_key}&append_to_response=videos,images&language=en`
+  }
 
   render() {
     return (
